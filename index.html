@@ -1,12 +1,213 @@
 <!DOCTYPE html>
-<html lang="ko" class="dark">
+<html lang="ko">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Turin's Homepage</title>
+    <meta name="description" content="제가 어떤 사람인지 궁금하신가요? 이 링크를 눌러 알아보세요!" />
+    <title>투린의 프로필</title>
+    <meta property="og:image" content="https://raw.githubusercontent.com/Shin-Haneul/Homepage/main/images/embed_image.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="style.css" />
   </head>
-  <body class="bg-gray-100 text-gray-800 dark:bg-gray-900 dark:text-gray-200">
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
+  <body>
+    <header class="banner with-image">
+      <div class="banner-image-container">
+        <img src="images/banner.png" alt="배너 이미지" class="banner-image">
+      </div>
+    </header>
+    
+    <section class="intro-section">
+      <div class="container">
+        <h1>투린</h1>
+        <p class="intro-text">다채로운 경험과 Discord를 통한 소통을 즐기는 열정적인 청소년</p>
+        <div class="social-links">
+            <a href="https://github.com/turin-dev" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://www.youtube.com/@turin-dev" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            <a href="https://open.spotify.com/user/31k5mjulm2dp5nxyobaukxz4wbo4?si=5d649ed743c04181" target="_blank" aria-label="Spotify"><i class="fab fa-spotify"></i></a>
+            <a href="discord://-/users/1081362980798726254" title="Discord"><i class="fab fa-discord"></i></a>
+        </div>
+      </div>
+    </section>
+    <nav id="main-nav">
+      <div class="container">
+        <ul class="nav-buttons">
+          <li><a href="index.html" class="active"><i class="fas fa-user"></i> 프로필</a></li>
+          <li><a href="portfolio.html"><i class="fas fa-briefcase"></i> Discord 관리자 경력</a></li>
+          <li><a href="posts.html"><i class="fas fa-pen"></i> 포스트</a></li>
+          <li><a href="#" id="dark-mode-toggle"><i class="fas fa-moon"></i> 다크 모드</a></li>
+        </ul>
+      </div>
+    </nav>
+    <main>
+      <div class="container">
+        <section id="personal-info">
+          <h2>About Me</h2>
+          <div class="profile-container">
+            <div class="profile-image">
+              <img src="images/profile.png" alt="프로필 이미지" class="avatar-image">
+            </div>
+            <div class="profile-details">
+              <div class="info-grid">
+                <div class="info-item">
+                  <p><strong><i class="fas fa-id-card"></i> 실명</strong> (비공개)</p>
+                </div>
+                <div class="info-item">
+                  <p><strong><i class="fas fa-user-tag"></i> 가명</strong> 투린</p>
+                </div>
+                <div class="info-item">
+                  <p><strong><i class="fas fa-user-edit"></i> 별칭</strong> 투린투린, 투투린, 투린투린투린투린</p>
+                </div>
+                <div class="info-item">
+                  <p><strong><i class="fas fa-birthday-cake"></i> 출생</strong> 2011년 5월 4일  (GMT+9)</p>
+                </div>
+                <div class="info-item">
+                  <p><strong><i class="fas fa-venus-mars"></i> 성별</strong> 남성</p>
+                </div>
+                <div class="info-item">
+                  <p><strong><i class="fas fa-ruler-vertical"></i> 신장</strong> 175.7cm</p>
+                </div>
+                <div class="info-item">
+                  <p><strong><i class="fas fa-weight"></i> 체중</strong> 61.00 kg</p>
+                </div>
+                <div class="info-item">
+                  <p><strong><i class="fas fa-flag"></i> 국적</strong> 대한민국 (한국)</p>
+                </div>
+                <div class="info-item">
+                  <p><strong><i class="fas fa-brain"></i> MBTI</strong> ENTP / ESTP </p>
+                </div>
+                <div class="info-item">
+                  <p>
+                    <strong><i class="fas fa-gamepad"></i> 취미</strong>
+                    Social, Media, Coding
+                  </p>
+                </div>
+                <div class="info-item">
+                  <p>
+                    <strong><i class="fas fa-heart"></i> 이상형</strong> 나이 차 ±1살, &lt;160cm, 귀엽고 착함
+                  </p>
+                </div>
+                <div class="info-item">
+                  <p>
+                    <strong><i class="fas fa-star"></i> 팬덤</strong>
+                  바위게(QWER)
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        
+        <section id="tmi">
+          <h2>TMI</h2>
+          <div class="tmi-container">
+            <article class="tmi-card">
+              <div class="tmi-icon"><i class="fas fa-signature"></i></div>
+              <h3>가명의 기원</h3>
+              <p>
+                투린이라는 가명은 github에서 사용하던 이름이에요.
+                처음에는 '투린'이라는 이름이 마음에 들어서 사용하기 시작했는데
+                지금은 제 정체성을 나타내는 중요한 이름이 되었어요.
+              </p>
+            </article>
+            <article class="tmi-card">
+              <div class="tmi-icon"><i class="fas fa-language"></i></div>
+              <h3>코딩을 좋아하는 이유</h3>
+              <p>
+                코딩을 좋아하는 이유는 문제를 해결하는 과정이 재미있기 때문이에요.
+                처음에는 단순히 재미로 시작했지만, 점점 더 복잡한 문제를 해결하는 데 도전하게 되었어요.
+                다양한 언어와 기술을 배우면서 제 능력을 키워나가고 있어요.
+              </p>
+            </article>
+            <article class="tmi-card">
+              <div class="tmi-icon"><i class="fab fa-discord"></i></div>
+              <h3>디스코드를 좋아해요</h3>
+              <p>
+                디스코드를 좋아하는 이유는 다양한 사람들과 소통할 수 있는 플랫폼이기 때문이에요.
+                친구들과의 대화는 물론, 새로운 사람들과의 만남도 즐길 수 있어요.
+                디스코드를 통해 많은 사람들과 소통하고, 다양한 경험을 쌓을 수 있어서 정말 좋아요.
+              </p>
+            </article>
+          </div>
+          <div class="contact-me">
+            <p><i class="fas fa-comment"></i> 이 외 궁금한 게 더 있으면 Discord에서 물어보세요!</p>
+          </div>
+        </section>
+      </div>
+    </main>
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-links">
+            <a href="index.html">프로필</a>
+            <a href="portfolio.html">Discord 관리자 경력</a>
+            <a href="posts.html">포스트</a>
+          </div>
+          <div class="social-links">
+            <a href="https://github.com/turin-dev" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://www.youtube.com/@turin_dev" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            <a href="https://open.spotify.com/user/31k5mjulm2dp5nxyobaukxz4wbo4?si=5d649ed743c04181" target="_blank" aria-label="Spotify"><i class="fab fa-spotify"></i></a>
+            <a href="discord://-/users/1081362980798726254" title="Discord"><i class="fab fa-discord"></i></a>
+          </div>
+          <p>&copy; 2025 turin_offical | All Rights Reserved</p>
+        </div>
+      </div>
+    </footer>
+    
+    <script>
+      // 스크롤 시 네비게이션 바 스타일 변경
+      window.addEventListener('scroll', function() {
+        const nav = document.getElementById('main-nav');
+        if (window.scrollY > 100) {
+          nav.classList.add('scrolled');
+        } else {
+          nav.classList.remove('scrolled');
+        }
+      });
+
+      // 다크 모드 토글 기능
+      const darkModeToggle = document.getElementById('dark-mode-toggle');
+      const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+      
+      // 로컬 스토리지에서 테마 설정 불러오기
+      const savedTheme = localStorage.getItem('theme');
+
+      // 초기 테마 설정 함수
+      function applyTheme(theme) {
+        if (theme === 'dark') {
+          document.body.classList.add('dark-mode');
+          darkModeToggle.innerHTML = '<i class="fas fa-sun"></i><span> 라이트 모드</span>'; // 다크 모드일 때 라이트 모드로 전환 버튼
+        } else {
+          document.body.classList.remove('dark-mode');
+          darkModeToggle.innerHTML = '<i class="fas fa-moon"></i><span> 다크 모드 </span>'; // 라이트 모드일 때 다크 모드로 전환 버튼 (글자 수 맞춤)
+        }
+      }
+
+      if (savedTheme) {
+        applyTheme(savedTheme);
+      } else if (prefersDarkScheme.matches) {
+        // 로컬 스토리지에 없으면 시스템 설정 따르기
+        applyTheme('dark');
+      } else {
+        applyTheme('light');
+      }
+
+      // 버튼 클릭 시 다크/라이트 모드 토글
+      darkModeToggle.addEventListener('click', function(e) {
+        e.preventDefault();
+        if (document.body.classList.contains('dark-mode')) {
+          applyTheme('light');
+          localStorage.setItem('theme', 'light');
+        } else {
+          applyTheme('dark');
+          localStorage.setItem('theme', 'dark');
+        }
+      });
+    </script>
   </body>
 </html>
