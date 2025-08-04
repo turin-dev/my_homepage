@@ -1,14 +1,12 @@
 {
   "name": "my_homepage",
   "version": "1.0.0",
-  "description": "Minimal posts feature",
-  "main": "backend/server.js",
+  "type": "module",
   "scripts": {
-    "start": "node backend/server.js",
+    "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "dotenv": "^16.4.5",
     "express": "^4.18.2",
     "pg": "^8.11.0"
   }
