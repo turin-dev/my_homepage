@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>Posts</title>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+  <h1>Posts</h1>
+  <ul id="list"></ul>
+  <h2 id="title"></h2>
+  <p id="time"></p>
+  <div id="content"></div>
+  <script type="module">
+    const list = document.getElementById('list');
+    const title = document.getElementById('title');
+    const time = document.getElementById('time');
+    const content = document.getElementById('content');
+
+    const wait = ms => new Promise(r => setTimeout(r, ms));
+    async function fetchWithRetry(url, opts, retry = 5) {
+      for (let i = 0; i < retry; i++) {
+        try {
+          const res = await fetch(url, opts);
+          if (!res.ok) throw new Error('net');
+          return await res.json();
+        } catch (e) {
+          if (i === retry - 1) throw e;
+          await wait(5000);
+        }
+      }
+    }
+
+    const formatDate = s => {
+      const [d, t] = s.split('/');
+      const [h, m] = t.split('.');
+      return `${d} ${h}:${m}`;
+    };
+
+    async function loadPosts() {
+      try {
+        const posts = await fetchWithRetry('/posts');
+        list.innerHTML = '';
+        posts.forEach((p, i) => {
+          const li = document.createElement('li');
+          li.textContent = `${p.name} (${formatDate(p.date)})`;
+          li.onclick = () => showPost(i + 1);
+          list.appendChild(li);
+        });
+      } catch (e) {
+        list.textContent = '로드 실패';
+      }
+    }
+
+    async function showPost(id) {
+      try {
+        const p = await fetchWithRetry(`/post/${id}`);
+        title.textContent = p.name;
+        time.textContent = formatDate(p.date);
+        content.innerHTML = marked.parse(p.detail);
+      } catch (e) {
+        content.textContent = '로드 실패';
+      }
+    }
+
+    loadPosts();
+  </script>
+</body>
+</html>
