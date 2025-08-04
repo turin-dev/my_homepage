@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Posts</title>
+  <link rel="stylesheet" href="post.css" />
+</head>
+<body>
+  <h1>Posts</h1>
+  <ul id="post-list"></ul>
+
+  <div id="modal" class="hidden">
+    <div class="modal-content">
+      <button id="close">&times;</button>
+      <h2 id="modal-title"></h2>
+      <p id="modal-date" class="datetime"></p>
+      <div id="modal-body"></div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script src="post.js"></script>
+</body>
+</html>
