@@ -1,9 +1,10 @@
 import express from 'express';
 import { Pool } from 'pg';
 
-const conn = 'postgresql://postgres:NwanzjapZJAqvQiMsNiBwGUQHAJqvzeF@postgres-en2t.railway.internal:5432/railway';
-const pool = new Pool({ connectionString: conn });
+//const conn = 'postgresql://postgres:NwanzjapZJAqvQiMsNiBwGUQHAJqvzeF@postgres-en2t.railway.internal:5432/railway';
+//const pool = new Pool({ connectionString: conn });
 const wait = ms => new Promise(r => setTimeout(r, ms));
+const pool = new Pool({ connectionString: process.env.DATABASE_URL });
 
 async function initDB() {
   while (true) {
@@ -19,6 +20,15 @@ async function initDB() {
 }
 
 await initDB();
+
+const PORT = process.env.PORT || 3000;
+
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', process.env.FRONTEND_URL || '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET,POST,PUT,DELETE,OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+  next();
+});
 
 const app = express();
 
@@ -52,4 +62,4 @@ app.get('/post/:id', async (req, res) => {
   }
 });
 
-app.listen(3000, () => console.log('server running on 3000'));
+app.listen(PORT, () => console.log('server running on ' + PORT));
