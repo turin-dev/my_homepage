@@ -50,7 +50,7 @@
           <h2><i class="fas fa-pen"></i> 최근 포스트</h2>
           <p class="section-intro">제 생각과 경험을 공유하는 블로그 포스트입니다. 다양한 주제에 대한 이야기를 나눕니다.</p>
           
-          <div class="posts-container">
+          <div class="posts-container" id="posts-list">
             <p class="no-posts">작성된 포스트가 없습니다.</p>
           </div>
         </section>
@@ -127,5 +127,38 @@
         }
       });
     </script>
-  </body>
+  
+    <!-- DB 목록 불러오기 (기존 코드 유지) -->
+    <script>
+    (async function () {
+      const API = "postgresql://postgres:NwanzjapZJAqvQiMsNiBwGUQHAJqvzeF@metro.proxy.rlwy.net:17807/railway"; // ← 여기를 네 공개 URL로 교체
+      const listEl = document.getElementById("posts-list");
+      if (!listEl) return;
+
+      try {
+        const res = await fetch(`${API}/api/posts?limit=50&offset=0`, { cache: "no-store" });
+        if (!res.ok) throw new Error("목록 불러오기 실패");
+        const posts = await res.json();
+
+        if (!posts.length) {
+          // 아무 글 없으면 기존 문구 유지
+          return;
+        }
+
+        listEl.innerHTML = posts.map(p => `
+          <article class="post-card">
+            <h3 class="title"><a href="post.html?id=${p.id}">${p.name}</a></h3>
+            <div class="sub"><time>${new Date(p.created_at).toLocaleDateString()}</time></div>
+            <p class="excerpt">${(p.excerpt || p.detail || "").replace(/\n/g,' ').slice(0, 150)}...</p>
+            <a class="readmore" href="post.html?id=${p.id}">자세히 보기 →</a>
+          </article>
+        `).join("");
+      } catch (e) {
+        console.error(e);
+        // 실패 시 기존 '작성된 포스트가 없습니다.' 유지
+      }
+    })();
+    </script>
+
+</body>
 </html>
